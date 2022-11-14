@@ -1,20 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-list-user',
-//   templateUrl: './list-user.component.html',
-//   styleUrls: ['./list-user.component.css']
-// })
-// export class ListUserComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
-
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../service/api-service';
 import {  FormGroup,  FormBuilder,  FormArray,  FormControl,  Validators} from '@angular/forms';

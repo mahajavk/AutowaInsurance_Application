@@ -45,14 +45,6 @@ export class CreateUserComponent implements OnInit {
             Validators.maxLength(20)
           ]
         ],
-        // phoneNumber: [
-        //   '',
-        //   [
-        //     Validators.required,
-        //     Validators.minLength(10),
-        //     Validators.maxLength(10)
-        //   ]
-        // ],
         email: ['', [Validators.required, Validators.email]],
         password: [
           '',
@@ -63,10 +55,6 @@ export class CreateUserComponent implements OnInit {
           ]
         ],
         confirmPassword: ['', Validators.required],
-        // acceptTerms: [false, Validators.requiredTrue]
-      },
-      {
-        //validators: [Validation.match('password', 'confirmPassword')]
       }
     );
   }
@@ -74,19 +62,6 @@ export class CreateUserComponent implements OnInit {
   get f(): { [key: string]: AbstractControl } {
     return this.userform.controls;
   }
-
-  // onSubmit(): void {
-  //   this.submitted = true;
-  // //  this.toaster.success("Details Submitted Sucessfully")
-  //   if (this.form.invalid) {
-  //     return;
-  //   }
-  //   else {
-  //     this.toaster.success("Details Submitted Sucessfully")
-  //   }
-
-   
-  // }
 
   onSubmit() {
     this.submitted = true;
