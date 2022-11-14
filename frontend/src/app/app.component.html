@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light appNavTop">
+    <div class="collapse navbar-collapse appDiv"
+     id="navbarSupportedContent">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link autoWa" style="margin-left: 90px;">Autowa.</a></div>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link navmenu" href="#home">Home</a>
+            <a class="nav-item nav-link navmenu" href="#about">About Us</a>
+            <a  class="nav-item nav-link navmenu" href="#quote">Get Quote</a>
+            <a  class="nav-item nav-link navmenu" href="#contact">Contact Us</a>
+            <!-- <a routerLinkActive="active" routerLink="/user-list">View Employees</a> -->
+            <a  class="nav-item nav-link navmenu"  href="#"> 
+                <span class="appCallUs">
+             Need Help? Call us
+            <span class="yellowNav">1800 9876543</span></span></a>
+            <a  class="nav-item nav-link navmenu" href="#create">Sign Up</a>
+            <a  class="nav-item nav-link navmenu" href="#login">Sign In</a>      
+            <a  class="nav-item nav-link navmenu" href="#list">User List</a>      
+               </div>
+        <div class="navbar-nav">
+        </div>
+    </div>
+    
+
+  
+</nav>
+<app-login id="login"></app-login>
+<create-user id="create"></create-user>
+
+<user-list id="list"></user-list>
+<app-home id="home"></app-home>
+<app-about id="about"></app-about>
+<app-process id="quote"></app-process>
+<app-contactus id="contact"></app-contactus>
+
+<router-outlet></router-outlet>
