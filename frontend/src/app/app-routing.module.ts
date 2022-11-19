@@ -4,28 +4,46 @@ import{ ContactUSComponent } from './ContactUS/ContactUS.component'
 import {AboutComponent} from './About/About.component'
 import { BrowserModule } from '@angular/platform-browser';
 import {HomeComponent} from './home/home.component'
-import { ProcessComponent } from './Process/Process.component';
-import { ListUserComponent } from './list-user/list-user.component'
+import { CreateQuoteComponent } from './create-quote/Create-quote.component';
+import {  QuoteListComponent } from './list-quote/list-quote.component';
+import { LoginComponent } from './login/login.component';
+import { CreateUserComponent } from './create-user/Create-user.component';
+import { EditQuoteComponent } from './edit-quote/Edit-quote.component';
+
 const routes: Routes = [
+  {
+     path: '',pathMatch:'full',redirectTo:'app-login'},
+  {
+    component:LoginComponent,
+    path:"app-login"
+  },
   {
     component:HomeComponent,
     path:"home"
+  },
+  {
+    component:CreateUserComponent,
+    path:"create"
   },
   {
     component:AboutComponent,
     path:"about"
   },
   {
-    component:ProcessComponent,
-    path:"process"
+    component:CreateQuoteComponent,
+    path:"quote"
   },
 {
   component:ContactUSComponent,
   path:"contact"
 },
 {
-  component:ListUserComponent,
-  path:"user-list"
+  component:QuoteListComponent,
+  path:"quotelist"
+},
+{
+  component:EditQuoteComponent,
+  path:"edit-quote/:id"
 }
 ];
 

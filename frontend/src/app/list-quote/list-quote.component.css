@@ -1,14 +1,14 @@
 .QuoteBg {
     background-color: white;
-    width: 720px;
-    margin-left: 22%;
+    width: 1030px;
+    margin-left: 10%;
     box-shadow: 0 0 24px rgb(204 204 204), 0 44px 74px rgb(27 22 66 / 6%);
   }
   
   .QuoteInner {
     width: 600px;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 17%;
   }
   
   p {

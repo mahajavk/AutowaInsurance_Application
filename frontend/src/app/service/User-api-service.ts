@@ -1,14 +1,3 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class ApiServiceService {
-
-//   constructor() { }
-// }
-
-
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -20,21 +9,18 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService {
+export class UserApiService {
   baseUri: string = 'http://localhost:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) {
     
   }
-  // Create
+  // Create User
   createUser(data): Observable<any> {
-    let url = `${this.baseUri}/create`;
+    let url = `${this.baseUri}/createQuote`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
-  // Get all employees
-  getUsers() {
-    return this.http.get(`${this.baseUri}`);
-  }
+
   // Get employee
   getUser(id): Observable<any> {
     let url = `${this.baseUri}/read/${id}`;
@@ -54,6 +40,13 @@ export class ApiService {
   }
   // Delete user
   deletUser(id): Observable<any> {
+    let url = `${this.baseUri}/delete/${id}`;
+    return this.http
+      .delete(url, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
+   // Delete Quote
+   deletQuote(id): Observable<any> {
     let url = `${this.baseUri}/delete/${id}`;
     return this.http
       .delete(url, { headers: this.headers })

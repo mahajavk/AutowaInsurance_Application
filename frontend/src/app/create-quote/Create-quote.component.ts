@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { UserApiService } from '../service/User-api-service';
+import { QuoteApiService } from '../service/Quote-api-service';
 import { Router } from '@angular/router';
 import {  NgZone } from '@angular/core';
 import {
@@ -15,62 +15,48 @@ import {
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 @Component({
-  selector: 'create-user',
-  templateUrl: './Create-user.component.html',
-  styleUrls: ['./Create-user.component.css']
+  selector: 'create-quote',
+  templateUrl: './Create-quote.component.html',
+  styleUrls: ['./Create-quote.component.css']
 })
-export class CreateUserComponent implements OnInit {
-  userform: FormGroup;
+export class CreateQuoteComponent implements OnInit {
+  quoteform: FormGroup;
   submitted = false;
 
+  
   constructor(private formBuilder: FormBuilder,
      private toaster: ToastrService,
-     private apiService: UserApiService,
+     private quoteapiService: QuoteApiService,
      private router: Router,
     private ngZone: NgZone,
      ) {
-
   }
 
   ngOnInit(): void {
-    this.userform = this.formBuilder.group(
+    this.quoteform = this.formBuilder.group(
       {
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
-        username: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20)
-          ]
-        ],
-        email: ['', [Validators.required, Validators.email]],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40)
-          ]
-        ],
-        confirmPassword: ['', Validators.required],
+        email: ['', Validators.required],
+        phonenumber: ['', Validators.required],
+        regitrationyear: ['', Validators.required],
+        vehiclenumber:['',Validators.required]
       }
     );
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.userform.controls;
+    return this.quoteform.controls;
   }
 
   onSubmit() {
     this.submitted = true;
-    if (!this.userform.valid) {
+    if (!this.quoteform.valid) {
       return false;
     } else {
-      return this.apiService.createUser(this.userform.value).subscribe({
+      return this.quoteapiService.createQuote(this.quoteform.value).subscribe({
         complete: () => {
-          console.log('User successfully created!'),
+          console.log('Quote successfully created!'),
            this.router.navigate(['/quotelist']);
         },
         error: (e) => {
@@ -82,6 +68,6 @@ export class CreateUserComponent implements OnInit {
 
   onReset(): void {
     this.submitted = false;
-    this.userform.reset();
+    this.quoteform.reset();
   }
 }

@@ -1,20 +1,23 @@
-//Mongo Database connection
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+
 // Connecting with mongo db
 mongoose
-  .connect('mongodb://127.0.0.1:27017/autodb')
+  .connect('mongodb://127.0.0.1:27017/autoInsurance1')
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+
+   
   })
   .catch((err) => {
     console.error('Error connecting to mongo', err.reason)
   })
-// Setting up port with express js
-const userRoute = require('../backend/routes/user.route')
+    
+   // Setting up port with express js
+const quoteRoute = require('../backend/controller/quote.route')
 const app = express()
 app.use(bodyParser.json())
 app.use(
@@ -25,7 +28,7 @@ app.use(
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'dist/mean-stack-crud-app')))
 app.use('/', express.static(path.join(__dirname, 'dist/mean-stack-crud-app')))
-app.use('/api', userRoute)
+app.use('/api', quoteRoute)
 // Create port
 const port = process.env.PORT || 4000
 const server = app.listen(port, () => {
