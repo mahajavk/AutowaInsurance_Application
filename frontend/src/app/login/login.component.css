@@ -1,18 +1,23 @@
 .QuoteBg {
     background-color: white;
-    width: 720px;
-    margin-left: 22%;
+    width: 240px;
+    margin-left: 80%;
     box-shadow: 0 0 24px rgb(204 204 204), 0 44px 74px rgb(27 22 66 / 6%);
+    position:fixed;
+    /* height: 25%; */
   }
   
   .QuoteInner {
-    width: 600px;
+    width: 240;
     text-align: center;
-    margin-left: 10%;
+    margin-left: 1%;
+    /* margin-right: 10%; */
+    
   }
   
   p {
     font-family: Lato;
+    font-size: 18px;
   }
   
   #root {
@@ -20,7 +25,8 @@
   }
   
   .register-form {
-    max-width: 350px;
+    /* max-width: 350px; */
+    max-width: 200px;
     margin: auto;
   }
   
@@ -28,7 +34,8 @@
     width: 100%;
     background-color: #ffeee0;
     margin-top: 0px;
-    padding: 10px;
+    padding: 5px;
+    
   }
   .form-group
   {
@@ -53,3 +60,14 @@
     flex-direction:row;
      margin-left: 30px;
   }
+
+  .autoWaTxt
+{
+    color:#3D4371;
+    font-size: 60px;
+    font-family: 'rubik';
+      margin-left: 0px;
+    font-weight: bold;
+    margin-top:10px;
+  text-align: center;
+}
