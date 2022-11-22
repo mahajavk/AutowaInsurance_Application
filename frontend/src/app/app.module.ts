@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { QuoteListComponent } from './list-quote/list-quote.component';
 import { UserApiService } from './service/User-api-service';
 import { QuoteApiService } from './service/Quote-api-service';
+import { LoginApiService } from './service/Login-api-service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -41,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot()
   ],
   providers: [UserApiService,
-  QuoteApiService],
+  QuoteApiService, LoginApiService],
    bootstrap: [AppComponent]
 })
 export class AppModule { }

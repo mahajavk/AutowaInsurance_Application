@@ -22,6 +22,7 @@ export class EditQuoteComponent implements OnInit {
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
     private QuoteApiService: QuoteApiService,
+    private quotetoaster:ToastrService,
     private router: Router
   ) {
 
@@ -78,27 +79,27 @@ get f(): { [key: string]: AbstractControl } {
     const newDate=new Date();
     var yearValue = Number(newDate.getFullYear());
     var currentYear = Number(this.editForm.controls['regitrationyear'].value);
-    let insAmount =this.editForm.controls['amount'].value;
-   
+    //let insAmount = this.editForm.controls['amount'].value;
+    let insAmount =1000;
    //let insAmount=0;
     switch (currentYear) {
     case 2023:
-        this.newInsAmount = (Number(insAmount) *2)/100 + insAmount;
+        this.newInsAmount = (Number(insAmount) *20)/100 + insAmount;
         break;
     case 2023:
-         this.newInsAmount= (Number(insAmount) *3)/100+ insAmount;
+         this.newInsAmount= (Number(insAmount) *40)/100+ insAmount;
         break;
     case 2024:
-          this.newInsAmount= (Number(insAmount) *4)/100+ insAmount;
+          this.newInsAmount= (Number(insAmount) *60)/100+ insAmount;
          break;
     case 2025:
-          this.newInsAmount= (Number(insAmount) *5)/100+ insAmount;
+          this.newInsAmount= (Number(insAmount) *80)/100+ insAmount;
          break;
     case 2026:
-          this.newInsAmount= (Number(insAmount) *6)/100+insAmount;
+          this.newInsAmount= (Number(insAmount) *80)/100+insAmount;
          break;
     case 2027:
-          this.newInsAmount= (Number(insAmount) *7)/100 + insAmount;
+          this.newInsAmount= (Number(insAmount) *80)/100 + insAmount;
          break;
     default:
       this.newInsAmount= 2000;
@@ -108,6 +109,9 @@ get f(): { [key: string]: AbstractControl } {
     {
       this.newInsAmount=2000;
     }
+    this.editForm.controls['amount'].setValue(this.newInsAmount);
+
+      //this.editForm.controls['amount']= insAmount;
   }
 
   onSubmit() {
@@ -117,15 +121,16 @@ get f(): { [key: string]: AbstractControl } {
     } else {
       if (window.confirm('Are you sure?')) {
         let id = this.actRoute.snapshot.paramMap.get('id');
-        this.onCalculate();
+        //this.onCalculate();
         
         this.editForm.controls['amount'].setValue(this.newInsAmount);
 
         return this.QuoteApiService.updatQuote(id, this.editForm.value).subscribe({
           complete: () => {
             // this.router.navigate(['quote-list']); 
+            this.quotetoaster.success('Policy generated successfully!');
             this.router.navigate(['/quotelist']);
-            console.log('Content updated successfully!');
+            
           },
           error: (e) => {
             console.log(e);

@@ -9,7 +9,7 @@
       <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <input type="text" placeholder="First Name" formControlName="firstname" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+           
              />
           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
             <div *ngIf="f.name.errors.required">Firstname is required</div>
@@ -55,7 +55,7 @@
     <div class="form-group">
       <input
         type="text"
-        placeholder="regitrationyear"
+        placeholder="Regitration Year"
         formControlName="regitrationyear"
         class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.regitrationyear.errors }"

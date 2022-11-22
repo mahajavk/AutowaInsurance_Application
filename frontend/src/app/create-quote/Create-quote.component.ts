@@ -54,6 +54,8 @@ export class CreateQuoteComponent implements OnInit {
     if (!this.quoteform.valid) {
       return false;
     } else {
+
+     // this.quoteform.controls['amount'].setValue(3000);
       return this.quoteapiService.createQuote(this.quoteform.value).subscribe({
         complete: () => {
           console.log('Quote successfully created!'),

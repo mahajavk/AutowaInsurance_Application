@@ -13,24 +13,12 @@ export class AppComponent {
 
   loginUser:Quote;
   
-  // constructor(private loginC:LoginComponent)
-  // {
 
-  // }
-  // loginStatus: Observable<boolean>
-  // username: Observable<string>
   
   ngOninit()
   {
-    //this.loginStatus=this.loginC.isLoggedIn();
-   // this.username=this.loginC.currentusername();
+
   }
-  // ngOnInit()
-  // {
-  //   $(".showtoast").click(function()
-  //   {
-  //     $('.toast').toast('show')
-  //   })
-  // }
+
   title = 'myApp';
 }

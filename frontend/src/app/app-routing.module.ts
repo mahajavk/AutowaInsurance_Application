@@ -12,10 +12,11 @@ import { EditQuoteComponent } from './edit-quote/Edit-quote.component';
 
 const routes: Routes = [
   {
-     path: '',pathMatch:'full',redirectTo:'app-login'},
+     path: '',pathMatch:'full',redirectTo:'home'
+  },
   {
     component:LoginComponent,
-    path:"app-login"
+    path:"login"
   },
   {
     component:HomeComponent,

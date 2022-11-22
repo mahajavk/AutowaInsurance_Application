@@ -17,7 +17,8 @@ export class UserApiService {
   }
   // Create User
   createUser(data): Observable<any> {
-    let url = `${this.baseUri}/createQuote`;
+    debugger;
+    let url = `${this.baseUri}/createuser`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
@@ -31,27 +32,7 @@ export class UserApiService {
       catchError(this.errorMgmt)
     );
   }
-  // Update user
-  updateEmployee(id, data): Observable<any> {
-    let url = `${this.baseUri}/update/${id}`;
-    return this.http
-      .put(url, data, { headers: this.headers })
-      .pipe(catchError(this.errorMgmt));
-  }
-  // Delete user
-  deletUser(id): Observable<any> {
-    let url = `${this.baseUri}/delete/${id}`;
-    return this.http
-      .delete(url, { headers: this.headers })
-      .pipe(catchError(this.errorMgmt));
-  }
-   // Delete Quote
-   deletQuote(id): Observable<any> {
-    let url = `${this.baseUri}/delete/${id}`;
-    return this.http
-      .delete(url, { headers: this.headers })
-      .pipe(catchError(this.errorMgmt));
-  }
+  
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';

@@ -35,17 +35,14 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
     this.userform = this.formBuilder.group(
       {
-        firstname: ['', Validators.required],
-        lastname: ['', Validators.required],
         username: [
           '',
           [
             Validators.required,
-            Validators.minLength(6),
+            Validators.minLength(3),
             Validators.maxLength(20)
           ]
         ],
-        email: ['', [Validators.required, Validators.email]],
         password: [
           '',
           [
@@ -53,8 +50,8 @@ export class CreateUserComponent implements OnInit {
             Validators.minLength(6),
             Validators.maxLength(40)
           ]
-        ],
-        confirmPassword: ['', Validators.required],
+        ]
+        
       }
     );
   }
@@ -70,8 +67,8 @@ export class CreateUserComponent implements OnInit {
     } else {
       return this.apiService.createUser(this.userform.value).subscribe({
         complete: () => {
-          console.log('User successfully created!'),
-           this.router.navigate(['/quotelist']);
+          console.log('User successfully created!')
+          this.router.navigate(['/quotelist']);
         },
         error: (e) => {
           console.log(e);
